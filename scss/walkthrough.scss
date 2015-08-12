@@ -1,0 +1,87 @@
+.walkthrough-view
+{
+  background-color: $walkthrough-bg;
+
+  .top-content
+  {
+    height:85%;
+
+    .slider
+    {
+      height: 100%;
+
+      .slider-slide
+      {
+        width: calc(100vw - 10px) !important;
+      }
+    }
+
+    .slide-content
+    {
+      height: 100%;
+      text-align:center;
+      padding-top: 40px;
+
+      .slide-image
+      {
+        width:100%;
+        margin: 30px 0px 20px;
+      }
+    }
+
+    .slide-h
+    {
+      color: $walkthrough-color;
+      font-weight: 400;
+    }
+
+    .slide-p
+    {
+      color: rgba($walkthrough-color, .7);
+      font-size: 16px;
+    }
+
+    .slider-pager
+    {
+      bottom: 2px;
+    }
+
+    .slider-pager .slider-pager-page i
+    {
+      color: $walkthrough-btn-bg-2;
+    }
+
+    .slider-pager .slider-pager-page.active i
+    {
+      color: $walkthrough-btn-bg-1;
+    }
+  }
+
+  .bottom-content
+  {
+    height:15%;
+    margin: 0px;
+
+    .login,
+    .sign-up
+    {
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .login
+    {
+      color: rgba($walkthrough-btn-color-2, .9);
+      background-color: rgba($walkthrough-btn-bg-2, .85);
+      border-color: rgba(darken($walkthrough-btn-bg-2, 1), .9);
+    }
+
+    .sign-up
+    {
+      color: rgba($walkthrough-btn-color-1, .9);
+      background-color: rgba($walkthrough-btn-bg-1, .85);
+      border-color: rgba(darken($walkthrough-btn-bg-1, 1), .9);
+    }
+  }
+}

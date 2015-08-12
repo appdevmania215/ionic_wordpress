@@ -1,0 +1,13 @@
+.register-view
+{
+  .button.register
+  {
+    margin-top:30px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba($walkthrough-btn-color-1, .9);
+    background-color: rgba($walkthrough-btn-bg-1, .85);
+    border-color: rgba(darken($walkthrough-btn-bg-1, 1), .9);
+  }
+}

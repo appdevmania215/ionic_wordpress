@@ -1,0 +1,46 @@
+<ion-view class="settings-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Settings</span>
+  </ion-nav-title>
+  <ion-content>
+    <ul class="list">
+
+      <ion-toggle ng-model="notifications" toggle-class="toggle-dark">Push Notifications</ion-toggle>
+      <ion-toggle ng-model="sendLocation" toggle-class="toggle-dark">Send Location</ion-toggle>
+
+      <div class="item item-divider">OPTIONS</div>
+      <a class="item option" ng-controller="EmailSenderCtrl" ng-click="sendFeedback()">
+        <i class="icon ion-chatbox dark"></i>
+        <span class="title">Send feedback</span>
+      </a>
+      <a class="item option" ng-controller="RateAppCtrl" ng-click="rateApp()">
+        <i class="icon ion-heart assertive"></i>
+        <span class="title">Rate this app</span>
+      </a>
+      <a class="item option" ng-controller="AdmobCtrl" ng-click="manageAdMob()">
+        <i class="icon ion-social-usd"></i>
+        <span class="title">AdMob</span>
+      </a>
+      <a class="item option" ng-controller="iAdCtrl" ng-click="manageiAd()">
+        <i class="icon ion-social-usd"></i>
+        <span class="title">iAd</span>
+      </a>
+
+      <div class="item item-divider">LEGAL</div>
+
+      <a class="item" href="" ng-click="showTerms()">Terms of Service</a>
+      <a class="item" href="" ng-click="showFAQS()">FAQS</a>
+      <a class="item" href="" ng-click="showCredits()">Credits</a>
+
+      <div class="item item-divider">ACCOUNT</div>
+      <a class="item option" ng-click="showLogOutMenu()">
+        <i class="icon ion-power"></i>
+        <span class="title">Log out</span>
+      </a>
+
+    </ul>
+  </ion-content>
+</ion-view>

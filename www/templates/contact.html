@@ -1,0 +1,53 @@
+<ion-view class="contact-view">
+  <ion-nav-title>
+    <span>Contact</span>
+  </ion-nav-title>
+  <ion-content>
+    <div>
+      <map data-tap-disabled="true" center="{{position.lat}},{{position.lng}}" zoom="15" disable-default-u-i="true">
+        <marker
+          position="{{position.lat}},{{position.lng}}"
+          title="Hello Marker"
+          visible="true">
+        </marker>
+      </map>
+    </div>
+    <div class="contact-content">
+      <div class="">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+          beatae vitae dicta sunt explicabo.
+        </p>
+      </div>
+      <div class="contact-details-item">
+        <h4>Address</h4>
+        <div class="featured">Our Inc.</div>
+        <div>2283 Monroe Drive</div>
+        <div>Rochester, NY 14606</div>
+      </div>
+      <div class="contact-details-item">
+        <h4>Social Networks</h4>
+        <div class="row social-networks">
+          <div class="col"><a href=""><i class="icon ion-social-twitter" style="color: #37b9e1;"></i></a></div>
+          <div class="col"><a href=""><i class="icon ion-social-facebook" style="color: #3e649e;"></i></a></div>
+          <div class="col"><a href=""><i class="icon ion-social-dribbble" style="color: #e36a96;"></i></a></div>
+          <div class="col"><a href=""><i class="icon ion-social-rss" style="color: #f18334;"></i></a></div>
+          <div class="col"><a href=""><i class="icon ion-social-pinterest" style="color: #c6484a;"></i></a></div>
+        </ul>
+      </div>
+      <div class="send-email">
+        <button class="button button-outline button-block featured" ng-controller="EmailSenderCtrl" ng-click="sendContactMail()">
+          Send us an email
+        </button>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

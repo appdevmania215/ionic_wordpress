@@ -1,0 +1,19 @@
+<div class="wp-search">
+	<div class="search-box-wrapper">
+		<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="search" ng-model="query" placeholder="Search posts" search-input>
+			</label>
+			<button ng-click="closeSearch($event)" class="button button-clear button-icon icon ion-close-circled"></button>
+		</div>
+	</div>
+	<search-results>
+		<my-tab title="Posts" tabid="posts" query="{{query}}">
+		</my-tab>
+		<my-tab title="Tags" tabid="tags" query="{{query}}">
+		</my-tab>
+		<my-tab title="Authors" tabid="authors" query="{{query}}">
+		</my-tab>
+	</search-results>
+</div>

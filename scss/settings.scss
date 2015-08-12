@@ -1,0 +1,50 @@
+.settings-view
+{
+  background-color: $content-bg;
+
+  .option
+  {
+    i
+    {
+      margin-right:12px;
+      font-size: 18px;
+    }
+  }
+
+  .item-divider
+  {
+    padding-top: 22px;
+    padding-bottom: 6px;
+    color: lighten($content-color, 30);
+    font-weight: 400;
+  }
+}
+
+.terms-of-service
+{
+  padding: 20px;
+  text-align: justify;
+
+  .title{
+    margin-top: 30px;
+  }
+}
+
+.credits
+{
+  padding: 20px;
+  text-align: justify;
+}
+
+.faqs
+{
+  padding: 20px;
+  text-align: justify;
+
+  .faq-item
+  {
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid lighten($content-color, 60);
+  }
+}

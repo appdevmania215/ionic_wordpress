@@ -1,0 +1,94 @@
+.main-menu
+{
+	ion-content
+	{
+		background-color: darken($main-menu-bg, 10);
+	}
+
+	ion-item.item
+	{
+		border-right:none;
+		border-left:none;
+		border-color: rgba(darken($main-menu-color, 30), .2);
+		background-color: darken($main-menu-bg, 10);
+
+		.item-content
+		{
+			background-color: darken($main-menu-bg, 10);
+			padding: $category-margin;
+			padding-left: $category-margin * 3;
+
+			.icon
+			{
+				width: ($category-margin * 3)/2;
+				left: $category-margin;
+			}
+
+			.icon:before
+			{
+				color: $main-menu-color;
+				font-size: 26px;
+			}
+		}
+
+		.item-content.activated
+		{
+			background-color: lighten($main-menu-bg, 10);
+		}
+
+		.menu-text
+		{
+			color: darken($main-menu-color, 30);
+			font-weight:500;
+		}
+	}
+
+	ion-item.item:first-child
+	{
+		border-top: none;
+	}
+
+	.heading-item
+	{
+		margin: 0px;
+
+		.item-content
+		{
+			padding:0px !important;
+			position:relative;
+			height:$main-menu-heading-height;
+		}
+
+		.heading-bg
+		{
+			position:absolute;
+			background-color: rgba($main-menu-bg, .6);
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+
+		.heading-action
+		{
+			position:absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index:3;
+			padding: $category-margin;
+			padding-left: $category-margin * 3;
+		}
+
+		img
+		{
+			width:100%;
+		}
+
+		.greeting
+		{
+			color: darken($main-menu-color, 20);
+			font-weight:500;
+		}
+	}
+}

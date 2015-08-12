@@ -1,0 +1,41 @@
+<ion-view class="post-view">
+  <ion-nav-title>
+    <span ng-bind-html="post.title | rawHtml"></span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="post">
+      <div class="card-header">
+        <h1 ng-bind-html="post.title | rawHtml"></h1>
+        <h2>Posted <span am-time-ago="post.date"></span> by <span class="author" ng-bind-html="post.author.name | rawHtml"></span></h2>
+      </div>
+      <div class="card-content" ng-bind-html="post.content | rawHtml"></div>
+    </div>
+    <div class="post-actions">
+      <a class="card-button primary" ng-click="sharePost(post.url)">SHARE</a>
+      <a ng-show="post.comment_count > 0" class="card-button comment-count">
+        <i class="icon ion-chatbox"></i>{{post.comment_count}}
+      </a>
+    </div>
+    <div class="comments">
+      <div class="list">
+        <a class="item item-avatar" ng-repeat="comment in comments" href="#" ng-class="{highlighted: comment.id === new_comment_id}">
+          <img ng-src="{{comment.user_gravatar}}">
+          <h2  ng-bind-html="comment.author.name | rawHtml"><span class="comment-date" am-time-ago="comment.date"></span></h2>
+          <p class="message-content" ng-bind-html="comment.content | rawHtml"></p>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="new-comment post-footer bar bar-footer">
+    <form name="comment_form" class="row" novalidate>
+      <div class="col col-80 content col-center">
+        <input class="new-comment-message" type="text" placeholder="Leave a comment..." ng-model="new_comment" required></input>
+      </div>
+      <div class="col col-20 button-container col-center">
+        <button class="button button-clear send" type="submit" ng-click="addComment()" ng-disabled="comment_form.$invalid">
+          Send
+        </button>
+      </div>
+    </form>
+  </ion-footer-bar>
+</ion-view>

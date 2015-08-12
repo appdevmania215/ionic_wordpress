@@ -1,0 +1,21 @@
+.login-view
+{
+  .button.login
+  {
+    margin-top:30px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba($walkthrough-btn-color-2, .9);
+    background-color: rgba($walkthrough-btn-bg-2, .85);
+    border-color: rgba(darken($walkthrough-btn-bg-2, 1), .9);
+  }
+
+  .alternative-actions
+  {
+    .sign-up
+    {
+      float:right;
+    }
+  }
+}

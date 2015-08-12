@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- build:css dist_css/styles.css -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <!-- endbuild -->
+
+<script src="http://maps.google.com/maps/api/js"></script>
+    <!-- build:js dist_js/modules.js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="lib/angular-moment/angular-moment.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- build:js dist_js/app.js -->
+    <script src="dist/dist_js/app/app.js"></script>
+    <script src="dist/dist_js/app/directives.js"></script>
+    <script src="dist/dist_js/app/controllers.js"></script>
+    <script src="dist/dist_js/app/templates.js"></script>
+    <script src="dist/dist_js/app/services.js"></script>
+    <script src="dist/dist_js/app/config.js"></script>
+    <script src="dist/dist_js/app/filters.js"></script>
+    <script src="dist/dist_js/app/factories.js"></script>
+    <!-- endbuild -->
+  </head>
+
+  <body ng-app="your_app_name" ng-strict-di>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

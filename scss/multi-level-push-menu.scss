@@ -1,0 +1,222 @@
+.multi-level-push-menu
+{
+	// ANIMATION STYLES
+	// This is the container for the menu
+	ion-content .scroll
+	{
+		position: relative;
+		height: 100%;
+	}
+
+	.menu-wrapper
+	{
+		position: relative;
+		@include cssCalc("height", "100% - #{($search-height)}");
+	}
+
+	.mp-menu
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		@include transform(translate3d(0, 0, 0));
+	}
+
+	.mp-level
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: darken($multi-menu-bg, 10);
+		@include transform(translate3d(100%, 0, 0));
+		@include transition(all 0.5s);
+	}
+
+	// Set initial state for first level menus
+	.mp-menu > .mp-level
+	{
+		box-shadow: none;
+		@include transform(translate3d(0, 0, 0));
+	}
+
+	/* CONTENT STYLES */
+	.mp-menu
+	{
+		.menu-heading
+		{
+			.menu-title
+			{
+				display:block;
+				height: $heading-height;
+				line-height: $heading-height;
+				padding: 0px $category-margin;
+				margin: 0px;
+				text-transform: uppercase;
+				background-color: darken($multi-menu-bg, 18);
+				text-decoration: none;
+				position:relative;
+			}
+
+			.title-text
+			{
+				color: rgba(darken($multi-menu-color, 10), .8);
+				text-shadow: 0 0 1px rgba(darken($multi-menu-bg, 10), .1);
+				font-weight: 300;
+				font-size: 22px;
+				margin:0px;
+				height: $heading-height;
+				line-height: $heading-height;
+			}
+		}
+
+		.menu-heading.has-previous
+		{
+			.menu-title
+			{
+				height: #{ (70 * $heading-height) / 100 };
+				line-height: #{ (70 * $heading-height) / 100 };
+				text-align: right;
+			}
+
+			.title-text
+			{
+				height: #{ (70 * $heading-height) / 100 };
+				line-height: #{ (70 * $heading-height) / 100 };
+			}
+
+			.title-aux
+			{
+				font-size: 12px;
+				position: absolute;
+				top: 0px;
+				left: $category-margin;
+			}
+
+			.menu-back
+			{
+				height: #{ (30 * $heading-height) / 100 };
+				line-height: #{ (30 * $heading-height) / 100 };
+				background: $top-bar-bg;
+				color: $multi-menu-color;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-weight: 700;
+				display: block;
+				text-decoration:none;
+				font-size: 10px;
+				padding: 0px $category-margin;
+				padding-left: #{ $category-margin + ($category-margin / 2)};
+				position: relative;
+				box-shadow: inset 0 1px rgba(darken($multi-menu-color, 30), .2);
+				@include transition(background 0.3s);
+			}
+
+			.menu-back:before
+			{
+				position: absolute;
+				left: $category-margin;
+				font-size: 14px;
+				height: #{ (30 * $heading-height) / 100 };
+				line-height: #{ (30 * $heading-height) / 100 };
+			}
+		}
+
+		.categories-list
+		{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+			overflow-y: scroll;
+			@include cssCalc("height", "100% - #{$heading-height}");
+		}
+
+		.category-item-container
+		{
+			height: $category-height;
+			background-color: darken($multi-menu-bg, 10);
+			box-shadow: inset 0 -1px rgba(darken($multi-menu-color, 30), .2);
+		}
+
+		// First menu item top border/shadow
+		.category-item-container:first-child
+		{
+			box-shadow: inset 0px -1px rgba(darken($multi-menu-color, 30), .2), inset 0 1px rgba(darken($multi-menu-color, 30), .2);
+		}
+
+		// Arrows pointing towards main content
+		.category-item-container:before
+		{
+			z-index: -1;
+			color: $multi-menu-color;
+			font-weight:600;
+			float: right;
+			height: $category-height;
+			line-height: $category-height;
+			margin-right: $category-margin;
+		}
+
+		.category-details
+		{
+			height: $category-height;
+			padding: $category-margin;
+			display: block;
+			text-decoration: none;
+			@include transition(background 0.3s, box-shadow 0.3s);
+
+			$category-inner-height: $category-height - (2 * $category-margin);
+
+			.category-title
+			{
+				color: $multi-menu-color;
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 25px;
+				display:block;
+				// 2/3 of inner height
+				line-height: #{ (66 * $category-inner-height) / 100 };
+				text-transform: uppercase;
+				text-shadow: 0 0 1px rgba($multi-menu-color, .1);
+			}
+
+			.category-title:after
+			{
+				content:'/';
+				font-weight: 100;
+				margin-left: 5px;
+			}
+
+			.category-description
+			{
+				color: darken($multi-menu-color, 30);
+				margin:0px;
+				// 1/3 of inner height
+				line-height: #{ (33 * $category-inner-height) / 100 };
+				font-size: 13px;
+			}
+		}
+	}
+}
+
+
+// If we are on ios, search-height must add 20px
+.platform-ios.platform-cordova
+{
+	// iOS7/8 has a status bar which sits on top of the header.
+	// Bump down everything to make room for it. However, if
+	// if its in Cordova, and set to fullscreen, then disregard the bump.
+	&:not(.fullscreen)
+	{
+		.multi-level-push-menu
+		{
+			.menu-wrapper
+			{
+				@include cssCalc("height", "100% - #{($search-height + $ios-statusbar-height)}");
+			}
+		}
+	}
+}

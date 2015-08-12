@@ -1,0 +1,101 @@
+@mixin cssCalc($property, $expression) {
+  #{$property}: calc(#{$expression});
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,900,700italic,900italic);
+
+// Walkthrough colors
+$error-color: #EF473A;
+// $walkthrough-bg-color: #4584b0;
+$walkthrough-bg: #4584b0;
+$walkthrough-color: #FFFFFF;
+
+$walkthrough-btn-bg-1: #FFFFFF;
+$walkthrough-btn-color-1: #285675;
+
+$walkthrough-btn-bg-2: #285675;
+$walkthrough-btn-color-2: #FFFFFF;
+
+
+// App colors
+$top-bar-bg: #4584b0;
+$top-bar-color: #FFFFFF;
+$loading-color: #FFFFFF;
+
+// background:lighten($dark,65);
+$content-bg: #EAEAEA;
+$content-color: #444444;
+$bookmarks-empty-color: #B3B2B2;
+$post-card-bg: #FFFFFF;
+$post-bg: #FFFFFF;
+$highlighted-comment: #33cd5f;
+
+$heart-color: #EF473A;
+$read-more-color: #FFA500;
+$anchor-color: #4584b0;
+
+
+// Main menu colors
+$main-menu-bg: #444444;
+$main-menu-color: #FFFFFF;
+
+
+// Multi menu colors
+$multi-menu-bg: #444444;
+$multi-menu-color: #FFFFFF;
+
+
+// General reset styles
+*
+{
+  color: $content-color;
+  font-family: 'Roboto', sans-serif;
+}
+
+.bar.app-top-bar
+{
+  background-color: $top-bar-bg;
+
+  .title
+  {
+    color: $top-bar-color !important;
+    *
+    {
+      color: $top-bar-color !important;
+    }
+  }
+
+  .button
+  {
+    color: $top-bar-color !important;
+    *
+    {
+      color: $top-bar-color !important;
+    }
+  }
+}
+
+.loading-container .loading
+{
+  *
+  {
+    color: $loading-color;
+  }
+}
+
+
+// OTHER VARIABLES
+
+$images-path: "../img";
+
+// Main menu
+$main-menu-heading-height: 230px;
+
+// Multi menu
+$search-height: $bar-height;
+$search-results-heading-height: 90px;
+$search-resume-height: 20px;
+
+$category-margin: 20px;
+$category-height: 85px;
+$heading-height: 120px;

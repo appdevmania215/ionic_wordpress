@@ -1,0 +1,32 @@
+{
+  "name": "ionwordpress",
+  "version": "1.0.0",
+  "description": "ionWordpress: An Ionic project",
+  "dependencies": {
+    "gulp": "^3.5.6",
+    "gulp-sass": "^0.7.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0"
+  },
+  "devDependencies": {
+    "async": "^0.9.0",
+    "bower": "^1.3.3",
+    "gulp-angular-templatecache": "^1.5.0",
+    "gulp-ng-annotate": "^0.5.2",
+    "gulp-useref": "^1.1.1",
+    "gulp-util": "^2.2.14",
+    "jshint": "^2.6.0",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    "org.apache.cordova.device",
+    "org.apache.cordova.console",
+    "com.ionic.keyboard",
+    "org.pushandplay.cordova.apprate",
+    "org.apache.cordova.inappbrowser",
+    "com.google.cordova.admob",
+    "com.rjfun.cordova.iad",
+    "co.asku.cordova.intercom"
+  ]
+}

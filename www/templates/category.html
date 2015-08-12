@@ -1,0 +1,19 @@
+<ion-view class="category-view">
+  <ion-nav-title>
+    <span>{{category.title}}</span>
+  </ion-nav-title>
+  <ion-content>
+
+    <!-- Refresh to get the new posts -->
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <div class="posts">
+      <div post-card ng-repeat="post in posts" class="post-card"></div>
+    </div>
+
+    <!-- Infinit scroll -->
+    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="1%" icon="ion-loading-c">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

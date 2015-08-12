@@ -1,0 +1,217 @@
+.wp-search
+{
+	.search-box-wrapper
+	{
+		.bar
+		{
+			background-color: darken($multi-menu-bg, 10);
+			border: none;
+			// fix 1px issue
+			background-size: 100% 0px;
+		}
+	}
+
+	.tabs
+	{
+		position:relative;
+	}
+
+	// Fix tabs animation on iOS
+	.tab-content.ng-hide
+	{
+		display: none !important;
+	}
+
+	.tab-content.ng-hide-add.ng-hide-add-active,
+	.tab-content.ng-hide-remove.ng-hide-remove-active
+	{
+		@include transition(all 0s ease);
+	}
+
+	// Search results scroll fix
+	.tabs-content,
+	.tab-content
+	{
+		height:100%;
+	}
+
+
+	.search-results-wrapper
+	{
+		position: absolute;
+		top: $search-height;
+		left: 0;
+		z-index: 2;
+		width: 100%;
+		@include cssCalc("height", "100% - #{($search-height)}");
+		background: rgba(darken($multi-menu-bg, 10), .9);
+		@include transform(translate3d(0, 100%, 0));
+		@include transition(all 0.2s ease);
+
+		.results-heading,
+		.results-body
+		{
+			background: none;
+			border: none;
+			padding: $category-margin;
+		}
+
+		.results-heading
+		{
+			height: $search-results-heading-height;
+		}
+
+		.results-body
+		{
+			padding: 0px;
+			overflow: hidden;
+			@include cssCalc("height", "100% - #{$search-results-heading-height}");
+		}
+
+		.tab-content
+		{
+			*
+			{
+				color: $multi-menu-color;
+			}
+
+			.search-resume
+			{
+				padding: 0px $category-margin $category-margin;
+				height: $search-resume-height + $category-margin;
+
+				*
+				{
+					line-height: $search-resume-height;
+				}
+			}
+
+			.no-query
+			{
+				margin:0px;
+				color: rgba(darken($multi-menu-color, 30), .7);
+				font-size: 14px;
+				font-weight: 500;
+				text-align: center;
+			}
+
+			.search-query
+			{
+				margin:0px;
+				color: rgba(darken($multi-menu-color, 30), .7);
+				font-size: 14px;
+				font-weight: 500;
+
+				.query-text
+				{
+					font-weight: 700;
+					color: rgba(darken($multi-menu-color, 10), .9);
+					font-style: italic;
+				}
+
+				.query-text:before,
+				.query-text:after
+				{
+					content: '"';
+				}
+			}
+
+			.no-results
+			{
+				text-align: center;
+				margin-top: 50px;
+				font-weight: 500;
+				color: rgba(darken($multi-menu-color, 10), .9);
+			}
+
+			.search-results-container
+			{
+				border-top:1px solid rgba(darken($multi-menu-color, 50), .2);
+				padding: 0px $category-margin;
+				@include cssCalc("height", "100% - #{($search-resume-height + $category-margin)}");
+			}
+
+			.search-results-list
+			{
+				overflow-y:scroll;
+				height:100%;
+			}
+
+			// Fix scrollbar style introduced on ionic v1rc1
+			.search-results-list::-webkit-scrollbar
+			{
+				display: none !important;
+				width: 0 !important;
+			}
+
+			.search-result-item
+			{
+				padding:10px 0px;
+				border-bottom: 1px solid rgba(darken($multi-menu-color, 30), .2);
+
+				*
+				{
+					text-decoration:none;
+				}
+
+				.post-title
+				{
+					margin:0px;
+					font-size: 20px;
+					font-weight: 300;
+					letter-spacing: -1px;
+				}
+
+				.post-date
+				{
+					margin:0px;
+					font-size: 12px;
+					font-weight: 200;
+					color: rgba(darken($multi-menu-color, 50), .7);
+				}
+
+				.post-time
+				{
+					color: rgba(darken($multi-menu-color, 20), .9);
+				}
+			}
+		}
+	}
+
+	.search-results-wrapper:before
+	{
+		z-index: -1;
+		display: block;
+		position: absolute;
+		content: '';
+		background-image: url($images-path+'/search-bg.png');
+		/* Prefix free isn't picking up this one */
+		-webkit-filter: url('#blur');
+		filter: url('#blur');
+		-webkit-filter: blur(5px);
+		filter: blur(5px);
+		background-size: cover;
+		opacity: 0.85;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// If we are on ios, search-height must add 20px
+.platform-ios.platform-cordova
+{
+	// iOS7/8 has a status bar which sits on top of the header.
+	// Bump down everything to make room for it. However, if
+	// if its in Cordova, and set to fullscreen, then disregard the bump.
+	&:not(.fullscreen)
+	{
+		.wp-search
+		{
+			.search-results-wrapper
+			{
+				top: $search-height + $ios-statusbar-height;
+				@include cssCalc("height", "100% - #{($search-height + $ios-statusbar-height)}");
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+<div class="tab-content" ng-show="selected">
+	<ng-transclude></ng-transclude>
+	<div class="search-resume">
+		<div ng-show="!query">
+			<h2 class="no-query">There's no query to search</h2>
+		</div>
+		<div ng-show="query">
+			<h2 class="search-query">Searching for: <span class="query-text">{{ query }}</span></h2>
+		</div>
+	</div>
+	<div class="search-results-container">
+		<div ng-show="results.length == 0 && query">
+			<h2 class="no-results">No results</h2>
+		</div>
+		<ul class="search-results-list" ng-if="results.length > 0">
+			<li class="search-result-item" ng-repeat="result in results">
+				<a menu-close ng-click="goToPost(result)">
+					<h2 class="post-title" ng-bind-html="result.title | rawHtml"></h2>
+					<p class="post-date">Posted <span class="post-time" am-time-ago="result.date"></span></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

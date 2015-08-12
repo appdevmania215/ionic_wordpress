@@ -1,0 +1,18 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+google_play_assets/
+apple_assets/
+
+envato
+UPLOAD/ionwordpress.zip
+
+node_modules/
+platforms/
+plugins/
+dist/
+.DS_Store
+www/js/templates.js
+www/css/ionic.app.min.css
+www/css/ionic.app.css
+www/lib/

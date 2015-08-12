@@ -1,0 +1,121 @@
+.post-view
+{
+
+  @import "scss/wordpress-posts";
+
+  $post-sides-padding: 8px;
+
+  ion-content
+  {
+    background: $post-bg;
+  }
+
+  .post
+  {
+    display:block;
+    position:relative;
+    overflow:hidden;
+    padding: $post-sides-padding;
+    position:relative;
+    z-index:2;
+    background:$post-bg;
+  }
+
+  .post-actions
+  {
+    padding: ($post-sides-padding * 2);
+    background: $post-bg;
+    border-top: 1px solid lighten($content-color, 60);
+
+    .comment-count
+    {
+      float: right;
+      padding: 0px;
+      color: $content-color;
+      i
+      {
+        padding:4px;
+      }
+    }
+  }
+
+  .post img
+  {
+    @include cssCalc("width", "100% + #{($sides-padding*2)} + #{($post-sides-padding*2)}");
+    @include cssCalc("margin-left", "-#{($sides-padding)} - #{($post-sides-padding)}");
+  }
+
+  .post iframe
+  {
+    @include cssCalc("width", "100% + #{($sides-padding*2)} + #{($post-sides-padding*2)}");
+    @include cssCalc("margin-left", "-#{($sides-padding)} - #{($post-sides-padding)}");
+  }
+
+  .comments
+  {
+    .item .message-content
+    {
+      overflow: inherit;
+      text-overflow: inherit;
+      white-space: normal;
+    }
+    .item .message-content p
+    {
+      overflow: inherit;
+      text-overflow: inherit;
+      white-space: normal;
+    }
+
+    h2
+    {
+      color:$content-color;
+      font-weight: bold;
+    }
+
+    .comment-date
+    {
+      color:lighten($content-color, 20);
+      font-weight: normal;
+      font-size: 12px;
+    }
+
+    .highlighted
+    {
+      background-color: lighten($highlighted-comment, 40);
+    }
+
+  }
+
+  .new-comment
+  {
+    height: 50px;
+    background-color: $content-color;
+    // Fix 1px issue
+    background-size: 100% 0px;
+
+    .col
+    {
+      padding:0px;
+    }
+
+    .new-comment-message
+    {
+      border: 1px solid darken($content-color, 15);
+      padding: 6px;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .button-container
+    {
+      text-align: center;
+
+      .button.send
+      {
+        color:darken($post-bg, 10);
+        font-weight:500;
+        font-size: 16px;
+      }
+    }
+  }
+}

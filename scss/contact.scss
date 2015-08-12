@@ -1,0 +1,29 @@
+.contact-view
+{
+  .contact-content
+  {
+    padding: 20px;
+  }
+
+  .send-email
+  {
+    margin-top:30px;
+  }
+
+  .contact-details-item
+  {
+    margin:30px 0px;
+  }
+
+  .social-networks
+  {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .featured
+  {
+    color: $anchor-color;
+    border-color: darken($anchor-color, 3);
+  }
+}
